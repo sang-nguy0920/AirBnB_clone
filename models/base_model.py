@@ -7,6 +7,7 @@ import json
 import uuid
 from datetime import datetime
 time = "%Y-%m-%dT%H:%M:%S.%f"
+import models
 
 
 class BaseModel():
@@ -51,6 +52,8 @@ class BaseModel():
                 with the current datetime
         """
         self.updated_at = datetime.now()
+        models.storage.new(self)
+        models.storage.save()
 
     def to_dict(self):
         """ to_dict method:
