@@ -8,10 +8,10 @@ import uuid
 from datetime import datetime
 
 
-class BaseModel:
+class BaseModel():
     """ BaseModel class """
 
-    def __init__(self, id=None):
+    def __init__(self):
         """ __init__ method:
             Args:
                 self:
@@ -19,7 +19,6 @@ class BaseModel:
             Return:
                 None
         """
-    if id is not None:
         self.id = str(uuid.uuid4())
         self.created_at = self.updated_at = datetime.now()
 
@@ -28,8 +27,7 @@ class BaseModel:
             Args: self
             Returns: [<class name>] (<self.id>) <self.__dict__>
         """
-        return ("[{}] ({}) {}".format(str(type(self.__name__),
-                                    self.id, self.__dict__)))
+        return ("[BaseModel] ({}) {}".format(self.id, self.__dict__))
 
     def save(self):
         """ save method: updates the public instance attribute updated_at
