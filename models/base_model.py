@@ -39,7 +39,8 @@ class BaseModel():
             Args: self
             Returns: [<class name>] (<self.id>) <self.__dict__>
         """
-        return ("[BaseModel] ({}) {}".format(self.id, self.__dict__))
+        return ("[{}] ({}) {}".format(str(type(self).__name__),
+                                    self.id, self.__dict__))
 
     def save(self):
         """ save method: updates the public instance attribute updated_at

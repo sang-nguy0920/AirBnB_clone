@@ -22,13 +22,13 @@ class FileStorage():
     def new(self, obj):
         """ new method: sets __objects with a key id """
         if obj:
-            var_id = "{}, {}".format(type(obj).__name__, obj.id)
-            FileStorage.__objects[var_id] = obj
-
+            var_id = "{}.{}".format(type(obj).__name__, obj.id)
+            self.__objects[var_id] = obj
+    
     def save(self):
         """ save method: serializes __objects to the JSON file """
-        s_dict = {} 
-        for var_id, var_obj in FileStorage.__objects.items():
+        s_dict = {}
+        for var_id, var_obj in self.__objects.items():
             s_dict[var_id] = var_obj.to_dict()
         
         with open(self.__file_path, mode='w', encoding='utf-8') as f:
