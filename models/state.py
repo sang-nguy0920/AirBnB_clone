@@ -3,7 +3,7 @@
 
 
 from models.base_model import BaseModel
-
+from models.engine import file_storage
 
 class State(BaseModel):
     """ class State that contains the public attribute:

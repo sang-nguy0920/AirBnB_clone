@@ -3,7 +3,7 @@
 
 
 from models.base_model import BaseModel
-
+from models.engine import file_storage
 
 class User(BaseModel):
     """ class User that contains public attributes: email, password,

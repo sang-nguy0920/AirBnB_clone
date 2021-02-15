@@ -6,8 +6,8 @@
 import json
 import uuid
 from datetime import datetime
+import models
 time = "%Y-%m-%dT%H:%M:%S.%f"
-from models.base_model import BaseModel
 
 
 class FileStorage():
@@ -39,5 +39,8 @@ class FileStorage():
         try:
             with open(self.__file_path, mode='r', encoding='utf-8') as f:
                 obj = json.load(f)
-        except:
+            for key, value in obj.items():
+                name = models.ourclasses[value['__class__']](**value)
+                self.__objects[key] = name
+        except FileNotFoundError:
             pass
