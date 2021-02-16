@@ -5,6 +5,7 @@
 from models.base_model import BaseModel
 from models.engine import file_storage
 
+
 class Place(BaseModel):
     """ class Place that contains the public attributes:
         city_id (empty str), user_id (empty str), name (empty str),
