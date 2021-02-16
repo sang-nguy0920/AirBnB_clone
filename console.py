@@ -13,7 +13,7 @@ from models.city import City
 from models.place import Place
 from models.state import State
 from models.amenity import Amenity
-
+import shlex
 
 ourclasses = {"BaseModel": BaseModel, "City": City,
                 "Place": Place, "Amenity": Amenity,
@@ -139,7 +139,7 @@ class HBNBCommand(cmd.Cmd):
             $ update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com"
         """
         objs = storage.all()
-        toks = arg.split(" ")
+        toks = shlex.split(arg)
         if not arg:
             print("** class name missing **")
             return
@@ -147,9 +147,16 @@ class HBNBCommand(cmd.Cmd):
             if len(toks) < 2:
                 print("** instance id missing **")
                 return
-            
-
-
+            search_match = toks[0] + "." + toks[1]
+            if search_match not in objs:
+                print("** no instance found **")
+            if len(toks) < 3:
+                print("** attribute name missing **")
+            if len(toks) < 4:
+                print("** value missing **")
+            else:
+                setattr(models.storage.all()[search_match], toks[2], toks[3])
+                models.storage.all()[search_match].save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
