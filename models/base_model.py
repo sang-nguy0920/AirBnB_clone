@@ -10,7 +10,6 @@ import models
 time = "%Y-%m-%dT%H:%M:%S.%f"
 
 
-
 class BaseModel():
     """ BaseModel class """
 
@@ -40,7 +39,7 @@ class BaseModel():
             Returns: [<class name>] (<self.id>) <self.__dict__>
         """
         return ("[{}] ({}) {}".format(str(type(self).__name__),
-                                    self.id, self.__dict__))
+                                      self.id, self.__dict__))
 
     def save(self):
         """ save method: updates the public instance attribute updated_at
