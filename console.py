@@ -123,14 +123,14 @@ class HBNBCommand(cmd.Cmd):
         all_instances = []
         if not arg:
             for name in objs:
-                all_instances.append(objs[name])
+                all_instances.append(objs[name].__str__())
             print(all_instances)
             return
         toks = arg.split(" ")
         if toks[0] in ourclasses:
             for name in objs:
                 if name[0:len(toks[0])] == toks[0]:
-                    all_instances.append(objs[name])
+                    all_instances.append(objs[name].__str__())
             print(all_instances)
         else:
             print("** class doesn't exist **")
