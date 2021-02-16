@@ -111,5 +111,45 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **'")
 
+    def do_all(self, arg):
+        """ do_all method:  Prints all string representation of all instances
+            based or not on the class name.
+            Ex: $ all BaseModel or $ all. """
+        objs = storage.all()
+        all_instances = []
+        if not arg:
+            for name in objs:
+                all_instances.append(objs[name])
+            print(all_instances)
+            return
+        toks = arg.split(" ")
+        if toks[0] in ourclasses:
+            for name in objs:
+                if name[0:len(toks[0])] == toks[0]:
+                    all_instances.append(objs[name])
+            print(all_instances)
+        else:
+            print("** class doesn't exist **")
+
+    def do_update(self, arg):
+        """ do_update method: Updates an instance based on the class name and
+            id by adding or updating attribute (save the change into the JSON
+            file).
+            Ex:
+            $ update BaseModel 1234-1234-1234 email "aibnb@holbertonschool.com"
+        """
+        objs = storage.all()
+        toks = arg.split(" ")
+        if not arg:
+            print("** class name missing **")
+            return
+        if toks[0] in ourclasses:
+            if len(toks) < 2:
+                print("** instance id missing **")
+                return
+            
+
+
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
