@@ -16,14 +16,16 @@ from models.amenity import Amenity
 import shlex
 
 ourclasses = {"BaseModel": BaseModel, "City": City,
-                "Place": Place, "Amenity": Amenity,
-                "Review": Review, "State": State,
-                "User": User}
+              "Place": Place, "Amenity": Amenity,
+              "Review": Review, "State": State,
+              "User": User}
 
 
 class HBNBCommand(cmd.Cmd):
     """ CMD class """
+
     prompt = '(hbnb) '
+
     def do_EOF(self, line):
         """ do_EOF method """
         return True
@@ -55,7 +57,7 @@ class HBNBCommand(cmd.Cmd):
             for key, value in ourclasses.items():  # iterate through our dict
                 if key == arg:  # find matching arg in dict
                     new_instance = ourclasses[key]()  # creating a new instance
-                                                        # of correct class
+
             storage.save()  # save to json file
             print(new_instance.id)  # print id
         else:
@@ -63,7 +65,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """ do_show method: Prints the string representation of an instance
-            based on the class name and id. 
+            based on the class name and id.
             Ex: $ show BaseModel 1234-1234-1234. """
         toks = arg.split(" ")
         objs = storage.all()
@@ -106,7 +108,9 @@ class HBNBCommand(cmd.Cmd):
                 match_obj = objs[search_match]
                 if match_obj:
                     destroy_obj = storage.all()
-                    del destroy_obj["{}.{}".format(type(match_obj).__name__, match_obj.id)]
+                    del destroy_obj["{}.{}"
+                                    .format(type(match_obj)
+                                            .__name__, match_obj.id)]
                     storage.save()
         else:
             print("** class doesn't exist **'")
