@@ -5,6 +5,7 @@
 from models.base_model import BaseModel
 from models.engine import file_storage
 
+
 class Review(BaseModel):
     """ class Review that contains the public attributes:
         place_id, user_id and text (all empty strings) """
