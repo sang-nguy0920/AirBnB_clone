@@ -2,9 +2,8 @@
 """ Tests for this """
 
 import unittest
-import models
+from models.base_model import BaseModel
 import json
-BaseModel = models.base_model.BaseModel
 
 
 class TestBaseModel(unittest.TestCase):
