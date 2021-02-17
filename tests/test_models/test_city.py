@@ -2,7 +2,7 @@
 """ Tests for this """
 
 import unittest
-
+import models
 
 class TestCity(unittest.TestCase):
 
