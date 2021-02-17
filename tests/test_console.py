@@ -1,7 +1,9 @@
 #!/usr/bin/python3
 """ Tests for this """
 
+
 import unittest
+import models
 
 
 class TestConsole(unittest.TestCase):

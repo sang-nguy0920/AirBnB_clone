@@ -4,6 +4,7 @@
 import unittest
 import models
 
+
 class TestPlace(unittest.TestCase):
 
     def test_upper(self):

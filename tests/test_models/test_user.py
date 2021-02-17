@@ -4,6 +4,7 @@
 import unittest
 import models
 
+
 class TestUser(unittest.TestCase):
 
     def test_upper(self):

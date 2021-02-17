@@ -2,8 +2,10 @@
 """ Tests for this """
 
 import unittest
-from models.base_model import BaseModel
+import models
 import json
+BaseModel = models.base_model.BaseModel
+
 
 class TestBaseModel(unittest.TestCase):
 

@@ -4,6 +4,7 @@
 import unittest
 import models
 
+
 class TestReview(unittest.TestCase):
 
     def test_upper(self):
