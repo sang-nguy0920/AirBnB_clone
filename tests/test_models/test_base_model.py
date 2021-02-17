@@ -2,7 +2,8 @@
 """ Tests for this """
 
 import unittest
-import models
+from models.base_model import BaseModel
+import json
 
 class TestBaseModel(unittest.TestCase):
 
@@ -19,6 +20,17 @@ class TestBaseModel(unittest.TestCase):
         # check that s.split fails when the separator is not a string
         with self.assertRaises(TypeError):
             s.split(2)
+
+    def test_documentation(self):
+        """ Test that all methods exist and contain correct documentation """
+        self.assertTrue(hasattr(BaseModel, "__init__"))
+        self.assertTrue(hasattr(BaseModel, "__str__"))
+        self.assertTrue(hasattr(BaseModel, "save"))
+        self.assertTrue(hasattr(BaseModel, "to_dict"))
+        self.assertTrue(BaseModel.__init__.__doc__)
+        self.assertTrue(BaseModel.__str__.__doc__)
+        self.assertTrue(BaseModel.save.__doc__)
+        self.assertTrue(BaseModel.to_dict.__doc__)
 
 if __name__ == '__main__':
     unittest.main()
