@@ -24,14 +24,14 @@ class TestBaseModel(unittest.TestCase):
 
     def test_documentation(self):
         """ Test that all methods exist and contain correct documentation """
-        self.assertTrue(hasattr(BaseModel, "__init__"))
-        self.assertTrue(hasattr(BaseModel, "__str__"))
-        self.assertTrue(hasattr(BaseModel, "save"))
-        self.assertTrue(hasattr(BaseModel, "to_dict"))
-        self.assertTrue(BaseModel.__init__.__doc__)
-        self.assertTrue(BaseModel.__str__.__doc__)
-        self.assertTrue(BaseModel.save.__doc__)
-        self.assertTrue(BaseModel.to_dict.__doc__)
+        self.assertTrue(hasattr(Base, "__init__"))
+        self.assertTrue(hasattr(Base, "__str__"))
+        self.assertTrue(hasattr(Base, "save"))
+        self.assertTrue(hasattr(Base, "to_dict"))
+        self.assertTrue(Base.__init__.__doc__)
+        self.assertTrue(Base.__str__.__doc__)
+        self.assertTrue(Base.save.__doc__)
+        self.assertTrue(Base.to_dict.__doc__)
 
 if __name__ == '__main__':
     unittest.main()
