@@ -3,6 +3,7 @@
 
 import unittest
 import models
+from models.base_model import BaseModel
 
 
 class TestState(unittest.TestCase):
@@ -20,6 +21,10 @@ class TestState(unittest.TestCase):
         # check that s.split fails when the separator is not a string
         with self.assertRaises(TypeError):
             s.split(2)
+
+    def test_docstring(self):
+        """ Testing that class docstring exists """
+        self.assertIsNotNone(State.__doc__)
 
 if __name__ == '__main__':
     unittest.main()
