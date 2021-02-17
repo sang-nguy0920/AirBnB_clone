@@ -161,6 +161,8 @@ class HBNBCommand(cmd.Cmd):
             else:
                 setattr(models.storage.all()[search_match], toks[2], toks[3])
                 models.storage.all()[search_match].save()
+        else:
+            print("** class doesn't exist **")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
