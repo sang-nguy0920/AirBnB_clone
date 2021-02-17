@@ -20,16 +20,5 @@ class TestBaseModel(unittest.TestCase):
         with self.assertRaises(TypeError):
             s.split(2)
 
-    def test_documentation(self):
-        """ Test that all methods exist and contain correct documentation """
-        self.assertTrue(hasattr(Base, "__init__"))
-        self.assertTrue(hasattr(Base, "__str__"))
-        self.assertTrue(hasattr(Base, "save"))
-        self.assertTrue(hasattr(Base, "to_dict"))
-        self.assertTrue(Base.__init__.__doc__)
-        self.assertTrue(Base.__str__.__doc__)
-        self.assertTrue(Base.save.__doc__)
-        self.assertTrue(Base.to_dict.__doc__)
-
 if __name__ == '__main__':
     unittest.main()
