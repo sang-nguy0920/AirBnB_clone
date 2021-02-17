@@ -10,9 +10,9 @@ from models.state import State
 from models.amenity import Amenity
 
 ourclasses = {"BaseModel": BaseModel, "City": City,
-                "Place": Place, "Amenity": Amenity,
-                "Review": Review, "State": State,
-                "User": User}
+              "Place": Place, "Amenity": Amenity,
+              "Review": Review, "State": State,
+              "User": User}
 
 storage = file_storage.FileStorage()
 storage.reload()

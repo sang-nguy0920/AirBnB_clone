@@ -24,13 +24,13 @@ class FileStorage():
         if obj:
             var_id = "{}.{}".format(type(obj).__name__, obj.id)
             self.__objects[var_id] = obj
-    
+
     def save(self):
         """ save method: serializes __objects to the JSON file """
         s_dict = {}
         for var_id, var_obj in self.__objects.items():
             s_dict[var_id] = var_obj.to_dict()
-        
+
         with open(self.__file_path, mode='w', encoding='utf-8') as f:
             json.dump(s_dict, f)
 
