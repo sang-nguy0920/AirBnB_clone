@@ -2,7 +2,7 @@
 """ Tests for this """
 
 import unittest
-import models
+from models.base_model import BaseModel
 
 
 class TestFileStorage(unittest.TestCase):
@@ -20,6 +20,17 @@ class TestFileStorage(unittest.TestCase):
         # check that s.split fails when the separator is not a string
         with self.assertRaises(TypeError):
             s.split(2)
+
+    def test_documentation(self):
+        """ Test that all methods exist and contain correct documentation """
+        self.assertTrue(hasattr(Base, "all"))
+        self.assertTrue(hasattr(Base, "new"))
+        self.assertTrue(hasattr(Base, "save"))
+        self.assertTrue(hasattr(Base, "reload"))
+        self.assertTrue(Base.all.__doc__)
+        self.assertTrue(Base.new.__doc__)
+        self.assertTrue(Base.save.__doc__)
+        self.assertTrue(Base.reload.__doc__)
 
 if __name__ == '__main__':
     unittest.main()
