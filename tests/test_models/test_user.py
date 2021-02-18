@@ -25,3 +25,6 @@ class TestUser(unittest.TestCase):
     def test_docstring(self):
         """ Testing that class docstring exists """
         self.assertIsNotNone(User.__doc__)
+
+if __name__ == '__main__':
+    unittest.main()
