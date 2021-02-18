@@ -4,6 +4,7 @@
 
 import unittest
 from models.base_model import BaseModel
+import sys
 
 
 class TestConsole(unittest.TestCase):
@@ -44,6 +45,10 @@ class TestConsole(unittest.TestCase):
         self.assertTrue(Base.do_destroy.__doc__)
         self.assertTrue(Base.do_all.__doc__)
         self.assertTrue(Base.do_update.__doc__)
+
+    def task_17(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("help show")
 
 if __name__ == '__main__':
     unittest.main()
