@@ -164,15 +164,5 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
-    def do_count(self, arg):
-        """ counts instances """
-        toks = arg.split()
-        objs = storage.all()
-        count = 0
-        for x in objs.keys():
-            if toks[0] in x:
-                count += 1
-        print(count)
-
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
