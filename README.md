@@ -82,3 +82,4 @@ $
     HBNBCommand().onecmd("help show")
     ```
     - Otherwise, you will have to re-write the console by replacing precmd by default.
+    Update test
